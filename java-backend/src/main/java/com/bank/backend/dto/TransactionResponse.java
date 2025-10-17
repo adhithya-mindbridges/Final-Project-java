@@ -1,17 +1,27 @@
 package com.bank.backend.dto;
 
+import com.bank.backend.entity.Transaction;
 import java.math.BigDecimal;
 
 public class TransactionResponse {
+    private boolean success;
     private String message;
-    private BigDecimal newBalance;
+    private Transaction transaction;
 
     public TransactionResponse() {
     }
 
-    public TransactionResponse(String message, BigDecimal newBalance) {
+    public TransactionResponse(boolean success, String message) {
+        this.success = success;
         this.message = message;
-        this.newBalance = newBalance;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getMessage() {
@@ -22,11 +32,11 @@ public class TransactionResponse {
         this.message = message;
     }
 
-    public BigDecimal getNewBalance() {
-        return newBalance;
+    public Transaction getTransaction() {
+        return transaction;
     }
 
-    public void setNewBalance(BigDecimal newBalance) {
-        this.newBalance = newBalance;
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 }
